@@ -349,7 +349,7 @@ newdats <- cbind(
 
 # Plot with updated axis labels, legend titles, thicker lines, and custom colors
 ggplot(newdats, aes(distance_after, prob_notch, color = deg_lipping, lty = distance_joint)) +
-  geom_line(size = 1) +  # Adjust size to make lines thicker
+  geom_line(lwd = 1) +  # Adjust size to make lines thicker
   scale_color_manual(
     values = c("no degeneration" = "green", "slight degeneration" = "blue", "clear degeneration" = "red")
   ) +
