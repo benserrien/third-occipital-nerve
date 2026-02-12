@@ -361,3 +361,34 @@ ggplot(newdats, aes(distance_after, prob_notch, color = deg_lipping, lty = dista
   )
 
 
+
+
+
+# -------------------------------------------------------------------------
+# a Bayesian model --------------------------------------------------------
+
+library(brms)
+
+m <- brm(
+  as.numeric(ton_notch2) ~ deg_lipping + distance_after + distance_joint +
+    (1|specimen_id),
+  family = bernoulli("logit"),
+  data = data.ton
+)
+summary(m)
+plot(m)
+
+m <- brm(
+  as.numeric(ton_notch2) ~ deg_lipping + distance_after + distance_joint,
+  family = bernoulli("logit"),
+  data = data.ton
+)
+summary(m)
+plot(m)
+
+
+
+
+
+
+
